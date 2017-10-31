@@ -1,3 +1,10 @@
+# Jackson Dataformat HAL Module - OBSOLETE
+
+## Obsolete notice
+
+This project is obsolete.
+The recommended replacements are available at https://github.com/openapi-tools/jackson-dataformat-hal.
+
 # Overview
 
 This project contains a [Jackson](http://wiki.fasterxml.com/JacksonHome) extension component to support the
@@ -6,6 +13,12 @@ serializing and deserializing.
 
 The goal is to handle HAL links and embedded objects as POJO properties with a data-binding similar to
 the normal Jackson JSON handling.
+
+# Status
+Module is considered production ready.
+
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/dk.nykredit.jackson.dataformat/jackson-dataformat-hal/badge.svg)](https://maven-badges.herokuapp.com/maven-central/dk.nykredit.jackson.dataformat/jackson-dataformat-hal/)
+[![Javadoc](https://javadoc-emblem.rhcloud.com/doc/dk.nykredit.jackson.dataformat/jackson-dataformat-hal/badge.svg)](https://www.javadoc.io/doc/dk.nykredit.jackson.dataformat/jackson-dataformat-hal)
 
 # Usage
 

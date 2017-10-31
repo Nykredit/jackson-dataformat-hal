@@ -3,12 +3,6 @@
 
     <modelVersion>4.0.0</modelVersion>
     
-    <parent>
-        <groupId>dk.nykredit</groupId>
-        <artifactId>nykredit-master-pom</artifactId>
-        <version>5.0.7</version>
-    </parent>
-
     <name>Jackson HAL Dataformat</name>
     <groupId>dk.nykredit.jackson.dataformat</groupId>
     <version>1.0.4-SNAPSHOT</version>
@@ -16,11 +10,28 @@
     <packaging>jar</packaging>
 
     <description>Dataformat extension for Jackson to handle the HAL JSON format.</description>
-    
+    <url>https://github.com/Nykredit/jackson-dataformat-hal</url>
+
+    <licenses>
+        <license>
+          <name>MIT License</name>
+          <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+          <name>Thor Anker Kvisgård Lange</name>
+          <email>tal@nykredit.dk</email>
+          <organization>Nykredit</organization>
+          <organizationUrl>http://www.nykredit.dk</organizationUrl>
+        </developer>
+    </developers>
+
     <scm>
-        <connection>scm:git:https://git.tools.nykredit.it/scm/dev/jackson-dataformat-hal.git</connection>
-        <developerConnection>scm:git:https://git.tools.nykredit.it/scm/dev/jackson-dataformat-hal.git</developerConnection>
-        <url>https://git.tools.nykredit.it/scm/dev/jackson-dataformat-hal.git</url>
+        <connection>scm:git:https://github.com/Nykredit/jackson-dataformat-hal.git</connection>
+        <developerConnection>scm:git:https://github.com/Nykredit/jackson-dataformat-hal.git</developerConnection>
+        <url>https://github.com/Nykredit/jackson-dataformat-hal/tree/master</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -66,6 +77,86 @@
     </dependencies>
 
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <compilerArgs>
+                        <arg>-Xlint</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.19.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.4</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                </configuration>
+            </plugin>
+        </plugins>    
     </build>
 
 </project>
